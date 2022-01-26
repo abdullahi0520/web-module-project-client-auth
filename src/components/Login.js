@@ -26,7 +26,7 @@ class Login extends React.Component {
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('role', res.data.role)
             localStorage.setItem('username', res.data.username)
-            this.props.history.push('/friendsList')
+            this.props.history.push('/friends')
         })
 
     }
@@ -34,7 +34,9 @@ class Login extends React.Component {
         
         return (
             <div>
+                <h2>Login</h2>
                 <form onSubmit={this.login}>
+                    <div>
                     <input 
                     type='text'
                     name='username'
@@ -42,6 +44,8 @@ class Login extends React.Component {
                     placeholder='Username'
                     onChange={this.handleChange}
                     />
+                    </div>
+                    <div>
                     <input 
                     type='password'
                     name='password'
@@ -49,6 +53,7 @@ class Login extends React.Component {
                     value={this.state.credentials.password}
                     onChange={this.handleChange}
                     />
+                    </div>
                     <button >Log in</button>
                 </form>
             </div>
